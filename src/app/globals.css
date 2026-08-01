@@ -1,26 +1,259 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   ANANTAA GREEN ENERGY LLP — design tokens
+   Brand: forest green #248E44 · flame gradient #F37621 → #F8BC3E · cream #FDFCEB
+   Direction: "industrial agronomy" — deep forest canvas, cream paper panels,
+   blueprint hairlines, monospace schematic annotations, flame as precision accent.
+   ========================================================================== */
+
+@theme {
+  /* forest — the dark canvas */
+  --color-forest-950: #061309;
+  --color-forest-900: #0b2213;
+  --color-forest-850: #0f2c19;
+  --color-forest-800: #133820;
+  --color-forest-700: #1a4b2a;
+  --color-forest-600: #1d6636;
+
+  /* brand green */
+  --color-green-500: #248e44;
+  --color-green-400: #34a457;
+  --color-green-300: #63c481;
+  --color-green-200: #9adcaf;
+
+  /* flame accent */
+  --color-flame-600: #e0651a;
+  --color-flame-500: #f37621;
+  --color-flame-400: #f8bc3e;
+
+  /* paper */
+  --color-cream-50: #fdfceb;
+  --color-cream-100: #f7f4df;
+  --color-cream-200: #ebe7cc;
+  --color-cream-300: #d6d1b0;
+  --color-ink-900: #14201a;
+  --color-ink-700: #2e3a33;
+  --color-ink-500: #5b665e;
+
+  /* type */
+  --font-display: var(--font-familjen), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+
+  /* motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-flow: flow 2.6s linear infinite;
+  --animate-flow-y: flow-y 1.4s linear infinite;
+  --animate-breathe: breathe 6s ease-in-out infinite;
+  --animate-marquee: marquee 42s linear infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes flow {
+  from {
+    stroke-dashoffset: 36;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
+/* Gas travelling down the process spine */
+@keyframes flow-y {
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: 28px;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-forest-950);
+  color: var(--color-cream-50);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-flame-500);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-flame-400);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+@utility shell {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* small uppercase technical label — the "schematic annotation" voice */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+/* hairline blueprint grid — dark sections */
+@utility blueprint {
+  background-image:
+    linear-gradient(to right, rgb(99 196 129 / 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(99 196 129 / 0.09) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+/* hairline blueprint grid — cream sections */
+@utility blueprint-light {
+  background-image:
+    linear-gradient(to right, rgb(20 32 26 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(20 32 26 / 0.06) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+/* film grain — never intercepts pointer events */
+@utility grain {
+  position: relative;
+}
+@utility grain-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.38;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+@utility flame-text {
+  background-image: linear-gradient(
+    112deg,
+    var(--color-flame-500),
+    var(--color-flame-400)
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+/* long-form prose inside cream panels */
+@utility prose-anantaa {
+  & p {
+    margin-block: 1.15rem;
+    color: var(--color-ink-700);
+  }
+  & p:first-child {
+    margin-top: 0;
+  }
+  & p:last-child {
+    margin-bottom: 0;
+  }
+  & strong {
+    font-weight: 600;
+    color: var(--color-ink-900);
+  }
+}
+
+/* long-form prose on the dark canvas */
+@utility prose-dark {
+  & p {
+    margin-block: 1.15rem;
+    color: rgb(253 252 235 / 0.72);
+  }
+  & p:first-child {
+    margin-top: 0;
+  }
+  & p:last-child {
+    margin-bottom: 0;
+  }
+  & strong {
+    font-weight: 500;
+    color: var(--color-cream-50);
+  }
+}
+
+/* ==========================================================================
+   Scroll reveal — progressive enhancement, content is visible without JS
+   ========================================================================== */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal="shown"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
