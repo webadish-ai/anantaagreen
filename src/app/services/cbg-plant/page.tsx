@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import {
@@ -7,12 +6,38 @@ import {
   ScopeGrid,
 } from "@/components/service-sections";
 import { ArrowLink, ButtonLink, Eyebrow, SectionHeading } from "@/components/ui";
+import { pageMetadata } from "@/lib/metadata";
+import { jsonLdScriptProps } from "@/lib/json-ld";
+import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "CBG Plant",
   description:
     "Compressed Bio-Gas plant development by Anantaa Green Energy — feedstock strategy, process design, EPC delivery, commissioning and long-run operations for CBG projects in India.",
-  alternates: { canonical: "/services/cbg-plant" },
+  path: "/services/cbg-plant",
+  keywords: ["CBG plant manufacturer India", "compressed bio-gas plant EPC", "CBG plant development Gujarat"],
+});
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Compressed Bio-Gas (CBG) Plant Development",
+  name: "CBG Plant Development",
+  provider: { "@type": "Organization", name: site.name, url: site.url },
+  areaServed: "IN",
+  url: `${site.url}/services/cbg-plant`,
+  description:
+    "Feedstock survey, process design, EPC delivery, commissioning and long-run operations for Compressed Bio-Gas plants.",
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+    { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+    { "@type": "ListItem", position: 3, name: "CBG Plant", item: `${site.url}/services/cbg-plant` },
+  ],
 };
 
 const scope = [
@@ -107,6 +132,8 @@ const outputs = [
 export default function CbgPlantPage() {
   return (
     <>
+      <script {...jsonLdScriptProps(serviceJsonLd)} />
+      <script {...jsonLdScriptProps(breadcrumbJsonLd)} />
       <PageHero
         eyebrow="Service 01 — Compressed Bio-Gas"
         title={

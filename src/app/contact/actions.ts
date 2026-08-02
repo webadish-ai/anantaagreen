@@ -1,6 +1,7 @@
 "use server";
 
 import { contact } from "@/lib/site";
+import { sendEmail } from "@/lib/email";
 
 export type EnquiryState = {
   status: "idle" | "success" | "error";
@@ -55,20 +56,7 @@ export async function submitEnquiry(
     };
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.ENQUIRY_TO_EMAIL ?? contact.email;
-  const from = process.env.ENQUIRY_FROM_EMAIL;
-
-  if (!apiKey || !from) {
-    console.warn(
-      "[enquiry] RESEND_API_KEY / ENQUIRY_FROM_EMAIL not set — enquiry not delivered.",
-    );
-    return {
-      status: "error",
-      message: `The enquiry form is not connected to email yet. Please write to ${contact.email} or call ${contact.phones[0]} and we will respond the same way.`,
-    };
-  }
-
   const lines = [
     `Name:     ${name}`,
     `Email:    ${email}`,
@@ -79,35 +67,19 @@ export async function submitEnquiry(
     message,
   ].join("\n");
 
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from,
-        to: [to],
-        reply_to: email,
-        subject: `Website enquiry — ${name}${company ? ` (${company})` : ""}`,
-        text: lines,
-      }),
-    });
+  const result = await sendEmail({
+    to,
+    replyTo: email,
+    subject: `Website enquiry — ${name}${company ? ` (${company})` : ""}`,
+    text: lines,
+  });
 
-    if (!res.ok) {
-      console.error("[enquiry] delivery failed", res.status, await res.text());
-      return {
-        status: "error",
-        message: `We could not send that just now. Please email ${contact.email} directly.`,
-      };
-    }
-  } catch (err) {
-    console.error("[enquiry] delivery threw", err);
-    return {
-      status: "error",
-      message: `We could not send that just now. Please email ${contact.email} directly.`,
-    };
+  if (!result.ok) {
+    const message =
+      result.reason === "not-configured"
+        ? `The enquiry form is not connected to email yet. Please write to ${contact.email} or call ${contact.phones[0]} and we will respond the same way.`
+        : `We could not send that just now. Please email ${contact.email} directly.`;
+    return { status: "error", message };
   }
 
   return {

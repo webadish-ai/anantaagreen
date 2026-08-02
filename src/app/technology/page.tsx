@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import { Eyebrow, Grain, SectionHeading } from "@/components/ui";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Technology",
   description:
     "The CBG process explained — anaerobic digestion in CSTR or plug flow digesters, H₂S removal, and CO₂ upgrading by water scrubbing, PSA or membrane separation, through to 250 bar compression.",
-  alternates: { canonical: "/technology" },
-};
+  path: "/technology",
+  keywords: ["CBG process technology", "CSTR digester", "plug flow digester", "biogas upgrading"],
+});
 
 const stages = [
   {

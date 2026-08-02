@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import {
@@ -7,12 +6,38 @@ import {
   ScopeGrid,
 } from "@/components/service-sections";
 import { ButtonLink, Eyebrow, SectionHeading } from "@/components/ui";
+import { pageMetadata } from "@/lib/metadata";
+import { jsonLdScriptProps } from "@/lib/json-ld";
+import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Carbon Credits",
   description:
     "Carbon-credit project screening, documentation and verification support by Anantaa Green Energy for CBG, methane-avoidance and agroforestry activities.",
-  alternates: { canonical: "/services/carbon-credits" },
+  path: "/services/carbon-credits",
+  keywords: ["carbon credit projects India", "carbon credit origination", "carbon credit consulting"],
+});
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Carbon Credit Project Development",
+  name: "Carbon Credits",
+  provider: { "@type": "Organization", name: site.name, url: site.url },
+  areaServed: "IN",
+  url: `${site.url}/services/carbon-credits`,
+  description:
+    "Eligibility screening, baseline assessment, methodology selection, documentation and monitoring support through to issuance and offtake for eligible carbon-credit projects.",
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+    { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+    { "@type": "ListItem", position: 3, name: "Carbon Credits", item: `${site.url}/services/carbon-credits` },
+  ],
 };
 
 const scope = [
@@ -70,6 +95,8 @@ const sources = [
 export default function CarbonCreditsPage() {
   return (
     <>
+      <script {...jsonLdScriptProps(serviceJsonLd)} />
+      <script {...jsonLdScriptProps(breadcrumbJsonLd)} />
       <PageHero
         eyebrow="Service 02 — Carbon Markets"
         title={

@@ -4,7 +4,9 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
+import { Chatbot } from "@/components/chatbot";
 import { site, contact } from "@/lib/site";
+import { jsonLdScriptProps } from "@/lib/json-ld";
 
 const familjen = Familjen_Grotesk({
   variable: "--font-familjen",
@@ -73,11 +75,14 @@ export const viewport: Viewport = {
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  // Dual-typed so this satisfies both generic Organization consumers and
+  // local-search / map-pack surfaces that look for LocalBusiness specifically.
+  "@type": ["Organization", "LocalBusiness"],
   name: site.name,
   alternateName: site.shortName,
   url: site.url,
   logo: `${site.url}/brand/logo-full-color.svg`,
+  image: `${site.url}/brand/logo-full-color.svg`,
   description: site.description,
   slogan: site.tagline,
   email: contact.email,
@@ -90,6 +95,13 @@ const organizationJsonLd = {
     postalCode: "380015",
     addressCountry: "IN",
   },
+  // Verified coordinates for the Anantaa Green Energy LLP Google Business listing.
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: contact.mapCoords.lat,
+    longitude: contact.mapCoords.lng,
+  },
+  hasMap: contact.mapShareUrl,
   areaServed: "IN",
   knowsAbout: [
     "Compressed Bio-Gas",
@@ -110,13 +122,7 @@ export default function RootLayout({
       className={`${familjen.variable} ${newsreader.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="bg-forest-950 flex min-h-full flex-col">
-        <script
-          type="application/ld+json"
-          // Static, author-controlled JSON-LD — no user input reaches this string.
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
-          }}
-        />
+        <script {...jsonLdScriptProps(organizationJsonLd)} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-flame-500 focus:px-5 focus:py-2 focus:text-sm focus:text-white"
@@ -129,6 +135,7 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
+        <Chatbot />
       </body>
     </html>
   );

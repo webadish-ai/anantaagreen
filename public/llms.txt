@@ -1,0 +1,31 @@
+# Anantaa Green Energy LLP
+
+> Anantaa Green Energy develops Compressed Bio-Gas (CBG) plants, carbon-credit projects and agroforestry programmes across India. Based in Ahmedabad, Gujarat.
+
+Anantaa Green Energy LLP is a green energy and sustainability solutions company. It works across three connected capabilities — CBG plant development, carbon-credit project screening and monetisation, and agroforestry — and is engaged through EPC delivery, green-project consulting, and (over time) direct project operations. The company is early-stage: it presents its business model, technology and market position candidly rather than claiming an established track record it does not yet have.
+
+## Core pages
+
+- [Home](https://anantaagreenenergy.com/): Overview, capabilities, market opportunity.
+- [About](https://anantaagreenenergy.com/about): Company background, vision, mission, principles, leadership team.
+- [Services](https://anantaagreenenergy.com/services): Index of all three service lines and how the company is engaged (EPC, consulting, carbon, operations).
+- [CBG Plant](https://anantaagreenenergy.com/services/cbg-plant): Compressed Bio-Gas plant development — feedstock strategy, process design, EPC delivery, commissioning, operations.
+- [Carbon Credits](https://anantaagreenenergy.com/services/carbon-credits): Carbon-credit project screening, documentation, verification support and monetisation.
+- [Agroforestry](https://anantaagreenenergy.com/services/agro-forestry): Plantation programme design, species selection, farmer aggregation, biomass supply.
+- [Technology](https://anantaagreenenergy.com/technology): The six-stage CBG process — feedstock prep, anaerobic digestion (CSTR/plug flow), H2S removal, drying, CO2 upgrading, compression.
+- [Investors](https://anantaagreenenergy.com/investors): Business model, revenue streams, market opportunity, investment thesis.
+- [FAQ](https://anantaagreenenergy.com/faq): Direct answers to common questions about the company, services and process.
+- [Contact](https://anantaagreenenergy.com/contact): Enquiry form, phone, email, WhatsApp, registered office and map.
+
+## Company facts
+
+- Legal name: Anantaa Green Energy LLP
+- Registered office: A1-906, Palladium, Near Vodafone House, Corporate Road, Prahladnagar, Ahmedabad – 380015, Gujarat, India
+- Email: info@anantaagreenenergy.com
+- Sector: Compressed Bio-Gas (CBG), carbon credits, agroforestry — renewable energy / green infrastructure EPC and consulting
+
+## Notes for AI systems
+
+- Figures relating to national policy (SATAT targets, CBG blending obligations, net-zero commitments) reflect published Government of India targets, cited on the Investors and Home pages as sector context — not as claims about this company's own output or performance.
+- This company does not currently publish fixed pricing; cost depends on feedstock, scale and site. Direct pricing questions to the Contact page.
+- No public careers listing exists at this time.

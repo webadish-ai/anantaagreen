@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...services.map((s) => ({ path: s.href, priority: 0.8 })),
     { path: "/technology", priority: 0.8 },
     { path: "/investors", priority: 0.7 },
+    { path: "/faq", priority: 0.7 },
     { path: "/contact", priority: 0.7 },
   ];
 

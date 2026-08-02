@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import {
@@ -7,12 +6,38 @@ import {
   ScopeGrid,
 } from "@/components/service-sections";
 import { ButtonLink, Eyebrow, SectionHeading } from "@/components/ui";
+import { pageMetadata } from "@/lib/metadata";
+import { jsonLdScriptProps } from "@/lib/json-ld";
+import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Agroforestry",
   description:
     "Agroforestry programmes by Anantaa Green Energy — species selection, farmer aggregation and plantation design to strengthen biodiversity and CBG biomass supply.",
-  alternates: { canonical: "/services/agro-forestry" },
+  path: "/services/agro-forestry",
+  keywords: ["agroforestry India", "plantation programme Gujarat", "biomass supply chain"],
+});
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Agroforestry Programme Development",
+  name: "Agroforestry",
+  provider: { "@type": "Organization", name: site.name, url: site.url },
+  areaServed: "IN",
+  url: `${site.url}/services/agro-forestry`,
+  description:
+    "Land and soil assessment, species selection, plantation design and farmer aggregation for agroforestry programmes that strengthen biomass supply.",
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+    { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+    { "@type": "ListItem", position: 3, name: "Agroforestry", item: `${site.url}/services/agro-forestry` },
+  ],
 };
 
 const scope = [
@@ -128,6 +153,8 @@ const benefits = [
 export default function AgroForestryPage() {
   return (
     <>
+      <script {...jsonLdScriptProps(serviceJsonLd)} />
+      <script {...jsonLdScriptProps(breadcrumbJsonLd)} />
       <PageHero
         eyebrow="Service 03 — Land & Biomass"
         title={

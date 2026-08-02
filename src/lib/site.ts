@@ -17,7 +17,13 @@ export const contact = {
     line3: "Prahladnagar, Ahmedabad – 380015",
     line4: "Gujarat, India",
   },
-  mapQuery: "Palladium, Corporate Road, Prahladnagar, Ahmedabad, Gujarat 380015",
+  /** Business name + address, so the embed resolves to the actual Place listing (not just a coordinate). */
+  mapQuery:
+    "Anantaa Green Energy LLP, A1-906 Palladium, Corporate Road, Prahladnagar, Ahmedabad, Gujarat 380015",
+  /** Verified pin for the "Anantaa Green Energy LLP" Google Business listing. */
+  mapCoords: { lat: 22.9990104, lng: 72.5016128 },
+  /** Share link to the same listing, for the "Open in Google Maps" / directions CTA. */
+  mapShareUrl: "https://maps.app.goo.gl/mT2uy7DijfKb9WdKA",
 } as const;
 
 /** Strips spaces so a phone string can be used in a tel: href. */
@@ -116,6 +122,7 @@ export const nav: NavItem[] = [
   },
   { label: "Technology", href: "/technology" },
   { label: "Investors", href: "/investors" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
 

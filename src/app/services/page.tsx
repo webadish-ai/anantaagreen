@@ -1,16 +1,17 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { services } from "@/lib/site";
 import { PageHero } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import { Eyebrow, SectionHeading } from "@/components/ui";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Services",
   description:
     "Compressed Bio-Gas plants, carbon-credit origination and agroforestry — Anantaa Green Energy's services from feasibility through EPC delivery and operations.",
-  alternates: { canonical: "/services" },
-};
+  path: "/services",
+  keywords: ["CBG plant services", "carbon credit services India", "agroforestry services"],
+});
 
 const detail: Record<string, string[]> = {
   "cbg-plant": [

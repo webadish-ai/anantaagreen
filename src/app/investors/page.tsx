@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import { CreamFeature } from "@/components/service-sections";
 import { AnantaaMark, Eyebrow, Grain, SectionHeading } from "@/components/ui";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Investors",
   description:
     "Anantaa Green Energy's early-stage business model for CBG development, EPC, carbon-credit projects, consulting and long-term operations in India.",
-  alternates: { canonical: "/investors" },
-};
+  path: "/investors",
+  keywords: ["green energy investment India", "CBG investment opportunity", "renewable energy investors Gujarat"],
+});
 
 const revenueStreams = [
   {

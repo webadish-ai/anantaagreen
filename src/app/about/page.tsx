@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import { CreamFeature } from "@/components/service-sections";
 import { AnantaaMark, Eyebrow, Grain, SectionHeading } from "@/components/ui";
 import { contact, leadership, telHref } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
 function initials(name: string) {
   return name
@@ -12,12 +12,13 @@ function initials(name: string) {
     .join("");
 }
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About",
   description:
     "Anantaa Green Energy LLP is an Ahmedabad-based green energy company developing CBG plants, carbon-credit projects and agroforestry programmes across India.",
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+  keywords: ["about Anantaa Green Energy", "green energy company Ahmedabad", "CBG company India"],
+});
 
 const principles = [
   {

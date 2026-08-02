@@ -1,23 +1,33 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { Eyebrow, Grain, SectionHeading } from "@/components/ui";
 import { contact, site, telHref, waHref } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
+import { jsonLdScriptProps } from "@/lib/json-ld";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact",
   description:
     "Contact Anantaa Green Energy LLP in Ahmedabad, Gujarat — for CBG plant development, carbon-credit projects, agroforestry and investment enquiries.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+  keywords: ["contact Anantaa Green Energy", "CBG plant enquiry", "green energy consultation Ahmedabad"],
+});
 
 const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
   contact.mapQuery,
-)}&output=embed`;
+)}&z=17&output=embed`;
+
+const contactPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  url: `${site.url}/contact`,
+  about: { "@type": "Organization", name: site.name, url: site.url },
+};
 
 export default function ContactPage() {
   return (
     <>
+      <script {...jsonLdScriptProps(contactPageJsonLd)} />
       <PageHero
         eyebrow="Connect With Us"
         title={
@@ -168,6 +178,19 @@ export default function ContactPage() {
               className="h-[380px] w-full lg:h-[460px]"
             />
           </div>
+
+          <a
+            href={contact.mapShareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="eyebrow text-cream-50/60 hover:text-flame-400 mt-6 inline-flex items-center gap-2.5 transition-colors"
+            data-reveal
+          >
+            Open in Google Maps
+            <span aria-hidden className="transition-transform duration-300">
+              →
+            </span>
+          </a>
         </div>
       </section>
     </>
