@@ -101,10 +101,18 @@ export const leadership: LeadershipMember[] = [
   },
 ];
 
+export type NavChild = {
+  label: string;
+  href: string;
+  blurb: string;
+  /** One further level only — e.g. CBG Plant's own Technology sub-page. */
+  children?: NavChild[];
+};
+
 export type NavItem = {
   label: string;
   href: string;
-  children?: { label: string; href: string; blurb: string }[];
+  children?: NavChild[];
 };
 
 export const nav: NavItem[] = [
@@ -132,6 +140,13 @@ export const nav: NavItem[] = [
         label: "CBG Plant",
         href: "/services/cbg-plant",
         blurb: "Compressed Bio-Gas plants, concept to commissioning",
+        children: [
+          {
+            label: "CBG Technology",
+            href: "/services/cbg-plant/technology",
+            blurb: "The six-stage process, digesters and core equipment",
+          },
+        ],
       },
       {
         label: "Carbon Credits",
@@ -142,11 +157,6 @@ export const nav: NavItem[] = [
         label: "Agroforestry",
         href: "/services/agro-forestry",
         blurb: "Biomass supply chains and biodiversity",
-      },
-      {
-        label: "CBG Technology",
-        href: "/services/cbg-plant/technology",
-        blurb: "The six-stage process, digesters and core equipment",
       },
     ],
   },

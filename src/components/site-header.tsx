@@ -115,22 +115,64 @@ export function SiteHeader() {
 
                 {item.children && (
                   <div className="pointer-events-none absolute top-full left-1/2 w-80 -translate-x-1/2 pt-3 opacity-0 transition-all duration-300 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
-                    <div className="border-cream-50/10 bg-forest-900/95 overflow-hidden rounded-xl border shadow-2xl backdrop-blur-xl">
-                      {item.children.map((child, i) => (
-                        <Link
+                    {/* No overflow-hidden here — a nested flyout (e.g. CBG
+                        Plant -> CBG Technology) must be able to escape this
+                        box. Corner-rounding is applied per row below instead. */}
+                    <div className="border-cream-50/10 bg-forest-900/95 rounded-xl border shadow-2xl backdrop-blur-xl">
+                      {item.children.map((child, i, siblings) => (
+                        <div
                           key={child.href}
-                          href={child.href}
-                          className={`hover:bg-forest-800 group/item block px-5 py-4 transition-colors ${
+                          className={`group/sub relative ${
                             i > 0 ? "border-cream-50/8 border-t" : ""
                           }`}
                         >
-                          <span className="eyebrow text-cream-50 group-hover/item:text-flame-400 block transition-colors">
-                            {child.label}
-                          </span>
-                          <span className="text-cream-50/50 mt-1 block text-sm leading-snug">
-                            {child.blurb}
-                          </span>
-                        </Link>
+                          <Link
+                            href={child.href}
+                            className={`hover:bg-forest-800 group/item flex items-center justify-between gap-3 overflow-hidden px-5 py-4 transition-colors ${
+                              i === 0 ? "rounded-t-xl" : ""
+                            } ${i === siblings.length - 1 ? "rounded-b-xl" : ""}`}
+                          >
+                            <span>
+                              <span className="eyebrow text-cream-50 group-hover/item:text-flame-400 block transition-colors">
+                                {child.label}
+                              </span>
+                              <span className="text-cream-50/50 mt-1 block text-sm leading-snug">
+                                {child.blurb}
+                              </span>
+                            </span>
+                            {child.children && (
+                              <span
+                                aria-hidden
+                                className="text-cream-50/40 group-hover/item:text-flame-400 shrink-0 transition-colors"
+                              >
+                                →
+                              </span>
+                            )}
+                          </Link>
+
+                          {child.children && (
+                            <div className="pointer-events-none absolute top-0 left-full w-72 pl-2 opacity-0 transition-all duration-300 group-focus-within/sub:pointer-events-auto group-focus-within/sub:opacity-100 group-hover/sub:pointer-events-auto group-hover/sub:opacity-100">
+                              <div className="border-cream-50/10 bg-forest-900/95 overflow-hidden rounded-xl border shadow-2xl backdrop-blur-xl">
+                                {child.children.map((grandchild, j) => (
+                                  <Link
+                                    key={grandchild.href}
+                                    href={grandchild.href}
+                                    className={`hover:bg-forest-800 group/item block px-5 py-4 transition-colors ${
+                                      j > 0 ? "border-cream-50/8 border-t" : ""
+                                    }`}
+                                  >
+                                    <span className="eyebrow text-cream-50 group-hover/item:text-flame-400 block transition-colors">
+                                      {grandchild.label}
+                                    </span>
+                                    <span className="text-cream-50/50 mt-1 block text-sm leading-snug">
+                                      {grandchild.blurb}
+                                    </span>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -199,14 +241,29 @@ export function SiteHeader() {
               {item.children && (
                 <div className="pb-5 pl-10">
                   {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      onClick={closeMenu}
-                      className="eyebrow text-cream-50/55 hover:text-flame-400 block py-2"
-                    >
-                      {child.label}
-                    </Link>
+                    <div key={child.href}>
+                      <Link
+                        href={child.href}
+                        onClick={closeMenu}
+                        className="eyebrow text-cream-50/55 hover:text-flame-400 block py-2"
+                      >
+                        {child.label}
+                      </Link>
+                      {child.children && (
+                        <div className="pl-5">
+                          {child.children.map((grandchild) => (
+                            <Link
+                              key={grandchild.href}
+                              href={grandchild.href}
+                              onClick={closeMenu}
+                              className="eyebrow text-cream-50/40 hover:text-flame-400 block py-2"
+                            >
+                              {grandchild.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}
