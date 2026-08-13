@@ -76,10 +76,10 @@ export function SiteFooter() {
             ))}
             <li>
               <Link
-                href="/technology"
+                href="/services/cbg-plant/technology"
                 className="text-cream-50/65 hover:text-cream-50 text-[0.95rem] transition-colors"
               >
-                Process Technology
+                CBG Technology
               </Link>
             </li>
           </ul>

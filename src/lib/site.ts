@@ -14,7 +14,7 @@ export const contact = {
   address: {
     line1: "A1-906, Palladium",
     line2: "Near Vodafone House, Corporate Road",
-    line3: "Prahladnagar, Ahmedabad – 380015",
+    line3: "Prahladnagar, Ahmedabad – 380 015",
     line4: "Gujarat, India",
   },
   /** Business name + address, so the embed resolves to the actual Place listing (not just a coordinate). */
@@ -61,18 +61,18 @@ export const leadership: LeadershipMember[] = [
   },
   {
     name: "Brijesh Bhagwagar",
-    title: "Chief Technology Officer",
-    bio: "Technology innovation, CBG plant engineering and carbon credit methodologies.",
+    title: "Business Development Executive (BDE)",
+    bio: "Driving strategic business growth by identifying opportunities, building strong client relationships, and delivering sustainable revenue expansion.",
   },
   {
     name: "Preet Patel",
-    title: "Chief Marketing Officer",
-    bio: "Brand strategy, market positioning and digital outreach for green solutions.",
+    title: "Chief Marketing Officer (CMO)",
+    bio: "Visionary Chief Marketing Officer driving brand transformation, strategic partnerships, market expansion, and sustainable business growth.",
   },
   {
     name: "Himanshu Shah",
-    title: "Chief Financial Officer",
-    bio: "Financial planning, investment structuring and risk management for renewable assets.",
+    title: "Chief Operating Officer (COO)",
+    bio: "Visionary Chief Operating Officer driving operational excellence, strategic execution, organisational transformation, and sustainable business growth.",
   },
 ];
 
@@ -118,9 +118,13 @@ export const nav: NavItem[] = [
         href: "/services/agro-forestry",
         blurb: "Biomass supply chains and biodiversity",
       },
+      {
+        label: "CBG Technology",
+        href: "/services/cbg-plant/technology",
+        blurb: "The six-stage process, digesters and core equipment",
+      },
     ],
   },
-  { label: "Technology", href: "/technology" },
   { label: "Investors", href: "/investors" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
@@ -142,7 +146,7 @@ export const services: Service[] = [
     title: "CBG Plant",
     short: "Compressed Bio-Gas",
     summary:
-      "Developing scalable Compressed Bio-Gas facilities — feedstock strategy, process design, EPC delivery and long-run operations.",
+      "We develop end-to-end Compressed Bio-Gas (CBG) projects — from feedstock planning and engineering to EPC execution, commissioning, and long-term operational support.",
     href: "/services/cbg-plant",
   },
   {
@@ -151,7 +155,7 @@ export const services: Service[] = [
     title: "Carbon Credits",
     short: "Origination & monetisation",
     summary:
-      "Generating and monetising carbon credits — turning verified emission reductions into a durable revenue line for every project.",
+      "From project development to carbon credit trading, we help businesses unlock the commercial potential of verified climate action.",
     href: "/services/carbon-credits",
   },
   {
@@ -160,7 +164,7 @@ export const services: Service[] = [
     title: "Agroforestry",
     short: "Biomass & biodiversity",
     summary:
-      "Developing agroforestry programmes that strengthen biodiversity, farmer livelihoods and the biomass supply chain.",
+      "Growing more than trees. From plantation planning to harvest, we build systems designed to create value for both people and the environment.",
     href: "/services/agro-forestry",
   },
 ];
@@ -207,7 +211,7 @@ export const processStages = [
 
 export const coProducts = [
   {
-    title: "Fermented Organic Manure",
+    title: "Organic Fertiliser",
     note: "Solid and liquid FOM/LFOM returned to the fields that supplied the feedstock.",
   },
   {

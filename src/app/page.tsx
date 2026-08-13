@@ -24,16 +24,16 @@ const scope = [
   "Carbon Credits",
   "Agroforestry",
   "EPC Delivery",
-  "Feasibility & Consulting",
+  "Project Feasibility",
   "Plant Operations",
 ];
 
 const marketFacts = [
   {
-    figure: "5,000",
-    unit: "plants by 2023",
+    figure: "5,000+",
+    unit: "CBG plants (SATAT Mission)",
     label: "SATAT target",
-    note: "The Sustainable Alternative Towards Affordable Transportation programme set an original national ambition of 5,000 CBG plants. The wider build-out remains a long-term opportunity.",
+    note: "The Government of India's SATAT initiative set an ambitious vision to accelerate the adoption of Compressed Biogas (CBG), creating significant long-term opportunities for the sector.",
   },
   {
     figure: "5%",
@@ -52,23 +52,23 @@ const marketFacts = [
 const differentiators = [
   {
     index: "01",
-    title: "Built to scale, not to demo",
-    body: "Every project is designed as a repeatable unit. Feedstock catchment, process configuration and offtake are specified so the second plant is faster and cheaper than the first.",
+    title: "Built to scale",
+    body: "Every project is designed with repeatability in mind, enabling faster execution, optimised costs, and consistent performance as we grow.",
   },
   {
     index: "02",
-    title: "Positioned in high-growth sectors",
-    body: "Bioenergy, carbon markets and agroforestry sit where policy, capital and demand meet in India. We are building our capabilities around projects where those three conditions overlap.",
+    title: "Focused on high-growth sectors",
+    body: "Our expertise is centred around CBG, Agroforestry, and Carbon Credits — three sectors driven by strong policy support, increasing investment, and rising market demand.",
   },
   {
     index: "03",
-    title: "Value, modelled honestly",
-    body: "We want projects that can create long-term value while contributing positively to the environment and society. Returns and impact should be modelled together, with assumptions visible.",
+    title: "Value with transparency",
+    body: "We believe successful projects balance commercial viability with measurable environmental impact. Every opportunity is evaluated with realistic assumptions and a long-term perspective.",
   },
   {
     index: "04",
     title: "A model built to diversify",
-    body: "EPC services, consulting, eligible carbon projects and—over time—direct project operations. The aim is to build complementary revenue streams as the business and project pipeline mature.",
+    body: "EPC services, consulting, eligible carbon projects and — over time — direct project operations. The aim is to build complementary revenue streams as the business and project pipeline mature.",
   },
 ];
 
@@ -182,9 +182,9 @@ export default function HomePage() {
                 <Eyebrow>Core Services &amp; Specialisations</Eyebrow>
               </div>
               <SectionHeading className="mt-6" data-reveal>
-                Three capabilities that
+                Three capabilities.
                 <br />
-                compound on each other.
+                One integrated ecosystem.
               </SectionHeading>
             </div>
             <div
@@ -193,10 +193,10 @@ export default function HomePage() {
               style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
             >
               <p className="text-cream-50/65 leading-relaxed">
-                A plantation feeds a digester. A digester displaces diesel. The
-                displacement becomes a credit. Run separately they are three
-                businesses; run together they are one system with three revenue
-                lines.
+                We don&apos;t just develop renewable energy projects — we build
+                complete ecosystems. By integrating Agroforestry, CBG Plants and
+                Carbon Credits, we create solutions that benefit businesses,
+                communities, and the planet.
               </p>
             </div>
           </div>
@@ -268,17 +268,17 @@ export default function HomePage() {
               <Eyebrow>Market Opportunity</Eyebrow>
             </div>
             <SectionHeading className="mt-6" data-reveal>
-              The policy is written.
+              The policy exists.
               <br />
-              The capacity is not built.
+              The opportunity awaits.
             </SectionHeading>
             <div className="prose-dark mt-8 text-lg" data-reveal>
               <p>
-                India is creating new demand for renewable gas, biomass, and
-                measurable emissions reductions. For a young company, the
-                opportunity is not to claim a finished track record; it is to
-                build the right project relationships, technical discipline and
-                delivery partners from the beginning.
+                India&apos;s transition to clean energy is no longer a vision,
+                it&apos;s a national priority. Supportive policies, ambitious
+                climate commitments, and growing demand for renewable energy are
+                creating unprecedented opportunities across CBG, Agroforestry
+                and Carbon Markets.
               </p>
             </div>
           </div>
@@ -306,9 +306,10 @@ export default function HomePage() {
           </div>
 
           <p className="text-cream-50/30 mt-8 font-mono text-[0.7rem] leading-relaxed">
-            Figures reflect published Government of India policy targets and are
-            included for sector context, not as a representation of company
-            performance or a forecast of returns.
+            Disclaimer: The figures above are based on published Government of
+            India policies and targets and are provided for industry context
+            only. They do not represent company performance or guarantee future
+            outcomes.
           </p>
         </div>
       </section>
@@ -335,9 +336,11 @@ export default function HomePage() {
               style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
             >
               <p className="text-ink-700 leading-relaxed">
-                We are building an engineering-led business around development,
-                delivery and long-term operations. As a new company, our priority
-                is to earn trust project by project.
+                At Anantaa Green Energy, we believe a successful project
+                doesn&apos;t end at commissioning — it begins there. We develop
+                renewable energy solutions designed for long-term performance,
+                operational excellence, and sustainable growth, creating value
+                for investors, industries, and communities alike.
               </p>
             </div>
           </div>
@@ -371,7 +374,7 @@ export default function HomePage() {
 
       <CtaBand
         eyebrow="Start with what you have"
-        title={"Have feedstock, land\nor a project idea?"}
+        title={"Have land, feedstock, or a\nrenewable energy vision?"}
         body="Tell us what you have and where you are in the process. We will help you identify the right next step, even if that step is an early feasibility review."
       />
     </>

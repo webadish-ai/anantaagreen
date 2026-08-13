@@ -37,30 +37,32 @@ export function SiteHeader() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      {/* Micro-bar: the schematic annotation line */}
-      <div
-        className={`border-cream-50/8 hidden border-b transition-all duration-500 lg:block ${
-          scrolled
-            ? "pointer-events-none -translate-y-full opacity-0"
-            : "translate-y-0 opacity-100"
-        }`}
-      >
-        <div className="shell flex h-9 items-center justify-between">
-          <p className="eyebrow text-green-200/60">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+        scrolled
+          ? "bg-forest-950/88 border-cream-50/8 border-b backdrop-blur-xl"
+          : "border-b border-transparent"
+      } ${menuOpen ? "bg-forest-950" : ""}`}
+    >
+      {/* Contact micro-bar — stays pinned above the nav at every scroll position.
+          Phone and email both stay visible on mobile, at a tighter size so the
+          pair fits a 360px screen without truncating. */}
+      <div className="border-cream-50/8 relative z-50 border-b">
+        <div className="shell flex h-9 items-center justify-between gap-3">
+          <p className="eyebrow text-green-200/60 hidden lg:block">
             Ahmedabad · Gujarat · India
           </p>
-          <div className="eyebrow flex items-center gap-6">
+          <div className="flex flex-1 items-center justify-between gap-3 font-mono text-[0.5625rem] tracking-[0.06em] uppercase sm:text-[0.625rem] sm:tracking-[0.14em] lg:flex-none lg:justify-end lg:gap-6 lg:text-[0.6875rem] lg:tracking-[0.22em]">
             <a
               href={telHref(contact.phones[0])}
-              className="text-cream-50/60 hover:text-flame-400 transition-colors"
+              className="text-cream-50/60 hover:text-flame-400 whitespace-nowrap transition-colors"
             >
               {contact.phones[0]}
             </a>
-            <span aria-hidden className="bg-flame-500 h-3 w-px" />
+            <span aria-hidden className="bg-flame-500 hidden h-3 w-px lg:block" />
             <a
               href={`mailto:${contact.email}`}
-              className="text-cream-50/60 hover:text-flame-400 transition-colors"
+              className="text-cream-50/60 hover:text-flame-400 whitespace-nowrap transition-colors"
             >
               {contact.email}
             </a>
@@ -69,13 +71,7 @@ export function SiteHeader() {
       </div>
 
       {/* Main bar */}
-      <div
-        className={`relative z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-forest-950/88 border-cream-50/8 border-b backdrop-blur-xl"
-            : "border-b border-transparent"
-        } ${menuOpen ? "bg-forest-950" : ""}`}
-      >
+      <div className="relative z-50">
         <div className="shell flex h-18 items-center justify-between gap-8 lg:h-20">
           <Link
             href="/"
@@ -179,7 +175,7 @@ export function SiteHeader() {
       <div
         id="mobile-nav"
         hidden={!menuOpen}
-        className="bg-forest-950 blueprint fixed inset-0 top-0 z-40 flex flex-col overflow-y-auto pt-24 pb-12 lg:hidden"
+        className="bg-forest-950 blueprint fixed inset-0 top-0 z-40 flex flex-col overflow-y-auto pt-32 pb-12 lg:hidden"
       >
         <nav aria-label="Mobile" className="shell flex-1">
           {nav.map((item, i) => (

@@ -68,46 +68,29 @@ const scope = [
 ];
 
 const feedstocks = [
-  "Agricultural residue — paddy straw, cotton stalk, bagasse",
-  "Press mud and spent wash from sugar mills",
-  "Napier grass and dedicated energy crops",
-  "Cattle dung and poultry litter",
-  "Food, market and canteen waste",
-  "Segregated organic fraction of municipal solid waste",
+  "Agricultural Residues",
+  "Press Mud",
+  "Napier Grass & Energy Crops",
+  "Cattle Dung & Poultry Litter",
+  "Food & Market Waste",
+  "Municipal Organic Waste",
 ];
 
-const plantEquipment = [
+/**
+ * Short orientation for the service page. The stage-by-stage process, the
+ * digester comparison and the full equipment list live on the dedicated
+ * technology page so they are documented in exactly one place.
+ */
+const technologyHighlights = [
   {
-    title: "CSTR Digester",
-    body: "Continuously stirred tank reactor for liquid and mixed organic feedstock — press mud, spent wash, food and market waste — held at wet solids concentration for uniform digestion.",
+    label: "Digestion",
+    title: "CSTR or Plug Flow",
+    body: "The digester is selected against the feedstock — a continuously stirred tank for wet, pumpable material, or a plug flow reactor for higher-solids and fibrous material that a CSTR cannot pump or stir efficiently.",
   },
   {
-    title: "Plug Flow Digester",
-    body: "Dry fermentation reactor for high-solids feedstock — agricultural residue and segregated municipal organics — that a CSTR cannot pump or stir efficiently.",
-  },
-  {
-    title: "H₂S Removal System",
-    body: "Biological or media-based desulphurisation that strips hydrogen sulphide before it reaches compressors, adsorbents or membranes downstream.",
-  },
-  {
-    title: "Water Scrubber",
-    body: "CO₂ upgrading by pressurised water contact — no chemical or adsorbent consumables, tolerant of residual H₂S.",
-  },
-  {
-    title: "PSA Purification Plant",
-    body: "Pressure swing adsorption on a carbon molecular sieve, cycling multiple columns for continuous output in a compact footprint.",
-  },
-  {
-    title: "Membrane Biogas Separation",
-    body: "Hollow-fibre membrane cascades for modular, low-maintenance CO₂ separation with minimal moving parts.",
-  },
-  {
-    title: "Gas Holder & Flare",
-    body: "Buffer storage to decouple production from upgrading, with an enclosed flare for safe disposal during upset or maintenance.",
-  },
-  {
-    title: "Compression & Cascade",
-    body: "Multi-stage compression to around 250 bar, filled into a cylinder cascade or metered into a city gas distribution network.",
+    label: "Cleaning & upgrading",
+    title: "H₂S removal to CBG",
+    body: "Desulphurisation protects everything downstream, then CO₂ is separated by water scrubbing, pressure swing adsorption or membranes before the gas is compressed for cascade filling or grid injection.",
   },
 ];
 
@@ -115,17 +98,17 @@ const outputs = [
   {
     label: "Primary product",
     value: "Compressed Bio-Gas",
-    note: "Upgraded to above 90% methane and compressed for cylinder cascade or city gas grid injection. Chemically interchangeable with CNG.",
+    note: "Clean, upgraded renewable gas produced from organic feedstock and supplied for CNG-equivalent applications or eligible gas-grid injection.",
   },
   {
     label: "Co-product",
-    value: "Fermented Organic Manure",
-    note: "Solid FOM and liquid LFOM, separated and dried on-site — a saleable soil amendment and organic fertiliser that returns nutrients to the same catchment that supplied the feedstock, cutting the farmer's dependence on chemical fertiliser.",
+    value: "Organic Fertiliser",
+    note: "The nutrient-rich material left after biogas production can be processed into FOM and LFOM, creating useful organic fertiliser for agricultural use.",
   },
   {
     label: "Co-product",
     value: "Carbon Credits",
-    note: "Avoided methane release and displaced fossil fuel, quantified and verified into tradable instruments.",
+    note: "Eligible projects can convert verified emission reductions into carbon credits, creating an additional opportunity to monetise environmental impact.",
   },
 ];
 
@@ -138,11 +121,11 @@ export default function CbgPlantPage() {
         eyebrow="Service 01 — Compressed Bio-Gas"
         title={
           <>
-            CBG Plants,{" "}
-            <span className="flame-text">designed around the feedstock.</span>
+            From feedstock to fuel.{" "}
+            <span className="flame-text">One partner.</span>
           </>
         }
-        lede="Developing scalable Compressed Bio-Gas facilities for sustainability — from the first feedstock survey through to a plant running at nameplate with people trained to keep it there."
+        lede="From feedstock assessment and technology selection to EPC, commissioning and operations, we take projects from concept to commercially viable production."
       >
         <ButtonLink href="/contact">Discuss a CBG Project</ButtonLink>
       </PageHero>
@@ -159,24 +142,24 @@ export default function CbgPlantPage() {
         aside={{ label: "Feedstocks we work with", items: feedstocks }}
       >
         <p>
-          Organic matter breaking down without oxygen produces biogas — roughly
-          55–65% methane, the rest largely carbon dioxide. That raw gas will burn,
-          but it will not move a truck and it cannot enter a pipeline.
+          Agricultural residues, press mud, Napier grass, cattle dung, food waste
+          and other organic materials can become more than waste — they can
+          become a source of renewable gas.
         </p>
         <p>
-          <strong>
-            Compressed Bio-Gas is what you get after that gas is cleaned and
-            upgraded.
-          </strong>{" "}
-          Hydrogen sulphide and moisture are stripped out, the CO₂ is separated by
-          water scrubbing, pressure swing adsorption or membranes, and the
-          resulting stream — above 90% methane — is compressed to around 250 bar.
+          Through anaerobic digestion, organic matter is converted into biogas.
+          That gas is then cleaned, upgraded, and compressed to produce
+          Compressed Bio-Gas with methane content suitable for CNG-equivalent
+          applications.
         </p>
         <p>
-          At that point it is functionally CNG, made from residue that was
-          otherwise burned in a field or left to rot. That is the whole
-          proposition, and it only works if the feedstock behind it is real,
-          contracted and close enough to haul.
+          But technology is only one part of the equation.{" "}
+          <strong>The real question is: does the feedstock work?</strong>
+        </p>
+        <p>
+          A commercially viable CBG plant depends on reliable volumes, consistent
+          quality, seasonal availability, sensible transport distances, and a
+          secure offtake strategy. That&apos;s where we begin.
         </p>
       </CreamFeature>
 
@@ -202,9 +185,9 @@ export default function CbgPlantPage() {
                 <Eyebrow>What&apos;s in the plant</Eyebrow>
               </div>
               <SectionHeading className="mt-6" data-reveal>
-                Equipment &amp;
+                Technology &amp;
                 <br />
-                technology.
+                equipment.
               </SectionHeading>
             </div>
             <div
@@ -220,23 +203,21 @@ export default function CbgPlantPage() {
             </div>
           </div>
 
-          <div className="mt-16 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-            {plantEquipment.map((item, i) => (
+          <div className="mt-14 grid gap-px sm:grid-cols-2">
+            {technologyHighlights.map((item, i) => (
               <div
                 key={item.title}
                 data-reveal
                 style={
-                  { "--reveal-delay": `${(i % 4) * 90}ms` } as React.CSSProperties
+                  { "--reveal-delay": `${(i % 2) * 100}ms` } as React.CSSProperties
                 }
-                className="border-cream-50/12 border-t pt-6"
+                className="border-cream-50/12 bg-forest-850/50 rounded-2xl border p-7 lg:p-8"
               >
-                <span className="text-flame-400 font-mono text-xs tracking-[0.2em]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="display text-cream-50 mt-4 text-xl">
+                <p className="eyebrow text-flame-400">{item.label}</p>
+                <h3 className="display text-cream-50 mt-5 text-2xl">
                   {item.title}
                 </h3>
-                <p className="text-cream-50/60 mt-3 text-[0.92rem] leading-relaxed">
+                <p className="text-cream-50/60 mt-4 text-[0.95rem] leading-relaxed">
                   {item.body}
                 </p>
               </div>
@@ -244,8 +225,8 @@ export default function CbgPlantPage() {
           </div>
 
           <div className="mt-14" data-reveal>
-            <ArrowLink href="/technology">
-              How the whole process line fits together
+            <ArrowLink href="/services/cbg-plant/technology">
+              See the full process, digesters and core equipment
             </ArrowLink>
           </div>
         </div>
@@ -291,7 +272,7 @@ export default function CbgPlantPage() {
       <CtaBand
         eyebrow="CBG enquiry"
         title={"Have feedstock?\nStart there."}
-        body="Send us what you have — tonnage, type, seasonality and location. That single input decides plant size, technology route and whether the project is worth building at all."
+        body="Tell us what you have — type, quantity, location, and availability. We'll help you understand its potential, the right plant size and technology, and whether a CBG project makes commercial sense."
       />
     </>
   );

@@ -42,28 +42,28 @@ const breadcrumbJsonLd = {
 
 const scope = [
   {
-    title: "Eligibility Screening",
-    body: "An early, unsentimental read on whether a project can generate credits at a volume worth the transaction cost of certifying it.",
+    title: "Project Assessment",
+    body: "We evaluate your project, its potential impact, and whether developing carbon credits makes practical and commercial sense.",
   },
   {
-    title: "Baseline Assessment",
-    body: "Establishing what would have happened without the project — the counterfactual that every credit is ultimately measured against.",
+    title: "Baseline & Impact Assessment",
+    body: "We establish the project's starting point and identify the emissions reductions or carbon removals that can potentially be measured.",
   },
   {
-    title: "Methodology Selection",
-    body: "Choosing the approved methodology that fits the activity, and structuring the project boundary so it stays fitting for the full crediting period.",
+    title: "Methodology & Project Design",
+    body: "We identify the appropriate carbon methodology and structure the project to meet the relevant requirements.",
   },
   {
-    title: "Documentation Support",
-    body: "Project design documents, monitoring plans and the evidence trail that validation bodies will actually ask to see.",
+    title: "Documentation",
+    body: "We prepare and support the required project documents, monitoring plans, records, and supporting evidence.",
   },
   {
-    title: "Monitoring & MRV",
-    body: "Instrumentation, data capture and reporting discipline built into plant operations from day one, rather than reconstructed later.",
+    title: "Monitoring, Reporting & Verification",
+    body: "We help establish systems to measure and document project performance, creating the evidence required for independent verification.",
   },
   {
-    title: "Issuance & Offtake",
-    body: "Coordination with verification bodies and registries through to issuance, then a sale strategy suited to the buyer profile for that credit type.",
+    title: "Issuance, Trading & Monetisation",
+    body: "From verification and registry issuance to credit trading and offtake, we help turn eligible carbon credits into a market opportunity.",
   },
 ];
 
@@ -86,10 +86,10 @@ const emissionScopes = [
 ];
 
 const sources = [
-  "Methane avoided from residue that would otherwise decompose uncontrolled",
-  "Fossil fuel displaced when CBG substitutes for CNG or diesel",
-  "Open-field crop residue burning avoided within the feedstock catchment",
-  "Biomass and soil carbon sequestered through agroforestry plantations",
+  "Avoided Methane — preventing organic waste from releasing methane through uncontrolled decomposition",
+  "Fossil Fuel Replacement — using CBG instead of conventional fossil fuels such as CNG or diesel",
+  "Reduced Crop Burning — converting agricultural residue into productive use instead of open-field burning",
+  "Carbon Sequestration — capturing and storing carbon through well-designed agroforestry projects",
 ];
 
 export default function CarbonCreditsPage() {
@@ -105,7 +105,18 @@ export default function CarbonCreditsPage() {
             <span className="flame-text">earned before they are sold.</span>
           </>
         }
-        lede="Generating and monetising carbon credits for environmental impact — building the measurement discipline into the project from the start, because a credit is only worth what its evidence can defend."
+        lede={
+          <>
+            Every project has the potential to do more than reduce emissions.
+            With the right approach, measurable environmental impact can become a
+            valuable carbon asset.
+            <span className="mt-4 block">
+              At Anantaa Green Energy, we identify opportunities where projects
+              can avoid emissions, reduce fossil fuel use, or capture carbon —
+              and help turn that impact into verified carbon credits.
+            </span>
+          </>
+        }
       >
         <ButtonLink href="/contact">Assess a Carbon Project</ButtonLink>
       </PageHero>
@@ -151,12 +162,12 @@ export default function CarbonCreditsPage() {
         eyebrow="Scope of Work"
         heading={
           <>
-            From eligibility screen
+            From carbon potential
             <br />
-            to issued instrument.
+            to market-ready credits.
           </>
         }
-        intro="Carbon certification is a long, evidence-heavy process with several points where a weak decision made early becomes expensive later. We work the sequence in order."
+        intro="Creating carbon credits requires more than identifying an emission reduction. We support the complete journey — from understanding whether a project qualifies to getting credits issued and finding the right market opportunity."
         items={scope}
       />
 
@@ -237,31 +248,34 @@ export default function CarbonCreditsPage() {
                 The standards landscape
               </p>
               <h2 className="display text-cream-50 mt-6 text-4xl lg:text-5xl" data-reveal>
-                Two markets,
+                Different markets.
                 <br />
-                different buyers.
+                Different buyers.
+                <br />
+                One thing matters: credibility.
               </h2>
             </div>
             <div className="prose-dark lg:col-span-7" data-reveal>
               <p>
-                <strong>Voluntary markets</strong> — administered by independent
-                standards such as Verra&apos;s VCS and the Gold Standard — serve
-                corporates buying reductions against their own targets. Pricing is
-                driven by project type, vintage and the credibility of the story
-                behind the tonne.
+                <strong>Voluntary Carbon Market</strong> — independent standards
+                such as Verra&apos;s VCS and Gold Standard support projects that
+                generate credits for organisations looking to address their
+                emissions and sustainability goals. Credit value can vary based
+                on the project, quality, vintage, verification, and market
+                demand.
               </p>
               <p>
-                <strong>India&apos;s compliance market</strong> is arriving through
-                the Carbon Credit Trading Scheme, established under the Energy
-                Conservation Act, with obligated entities and a domestic
-                registry. It changes who the buyer is and how the price is set.
+                <strong>India&apos;s Compliance Market</strong> — India is
+                developing its domestic carbon market through the Carbon Credit
+                Trading Scheme (CCTS). As this market evolves, eligible projects
+                can potentially participate in a regulated system with defined
+                participants, methodologies, and trading mechanisms.
               </p>
               <p>
-                We keep projects positioned for both where the methodology allows
-                it, and we say so plainly when it does not. Registry rules and
-                eligibility criteria move; any project-specific position is
-                confirmed against the standard in force at the time of
-                registration.
+                <strong>Our Approach</strong> — we assess each project against
+                the applicable standards and market requirements and identify the
+                most suitable route. Where a project can serve more than one
+                market, we help preserve that flexibility.
               </p>
             </div>
           </div>
@@ -270,9 +284,9 @@ export default function CarbonCreditsPage() {
 
       <OtherServices current="carbon-credits" />
       <CtaBand
-        eyebrow="Carbon enquiry"
-        title={"Is there a credit\nin your project?"}
-        body="Send us the activity, the scale and the timeline. We will tell you whether it is creditable, roughly what volume to expect, and whether the certification cost is worth carrying."
+        eyebrow="Unlock carbon value"
+        title={"Your project could be worth\nmore than you think."}
+        body="Tell us about your project, and we'll explore where its environmental impact could translate into measurable carbon value."
       />
     </>
   );

@@ -23,23 +23,23 @@ export const metadata = pageMetadata({
 const principles = [
   {
     index: "01",
-    title: "Scale is a design decision",
-    body: "Infrastructure that cannot be repeated is a prototype. We specify projects so the learning from the first one compounds into the next, rather than being spent once.",
+    title: "Built for tomorrow, not just today",
+    body: "Every project is designed to deliver long-term value, with solutions that are scalable, repeatable, and ready to grow with changing energy needs.",
   },
   {
     index: "02",
-    title: "Environmental integrity is not a trade-off",
-    body: "A project that only works by cutting corners on emissions, effluent or land use is not a green project. We would rather lose the site than carry that.",
+    title: "Sustainability comes first",
+    body: "We believe clean energy should never come at the cost of the environment. Responsible development is the foundation of every project we undertake.",
   },
   {
     index: "03",
-    title: "Returns are modelled, not promised",
-    body: "Investor value is stated in our mission for a reason. We show the assumptions behind a number and we say which of them we are least sure about.",
+    title: "Trust through transparency",
+    body: "We value honest conversations over unrealistic promises. Every recommendation is backed by clear analysis, practical planning, and measurable outcomes.",
   },
   {
     index: "04",
-    title: "We stay after handover",
-    body: "Direct project operations are part of our business model. Knowing we may have to run the plant changes what we are willing to build.",
+    title: "Partners beyond the project",
+    body: "Our commitment doesn't end with delivery. We work alongside our clients to ensure every project continues to perform, evolve, and create value for years to come.",
   },
 ];
 
@@ -50,11 +50,11 @@ export default function AboutPage() {
         eyebrow="About Anantaa Green Energy"
         title={
           <>
-            Forward thinking,{" "}
-            <span className="flame-text">from Ahmedabad outward.</span>
+            Creating value through{" "}
+            <span className="flame-text">sustainable innovation.</span>
           </>
         }
-        lede="A green energy and sustainability solutions company building the infrastructure India's clean energy transition needs — and holding it to the standard we would apply to our own balance sheet."
+        lede="We are committed to developing scalable renewable energy solutions that accelerate India's transition to a low-carbon economy through CBG Plants, Agroforestry, and Carbon Credit initiatives."
       />
 
       <CreamFeature
@@ -71,40 +71,35 @@ export default function AboutPage() {
         aside={{
           label: "At a glance",
           items: [
-            "Green energy & sustainability solutions company",
-            "Based in Ahmedabad, Gujarat, India",
-            "Compressed Bio-Gas plant development",
-            "Carbon credit origination and monetisation",
-            "Agro forestry and biomass supply programmes",
-            "EPC, consulting and direct project operations",
+            "Green Energy & Sustainability Solutions",
+            "Ahmedabad, Gujarat, India",
+            "Compressed Bio-Gas (CBG) Projects",
+            "Carbon Credit Development",
+            "Agroforestry & Biomass Supply",
+            "EPC, Consulting & Project Development",
           ],
         }}
       >
         <p>
-          Anantaa Green Energy is a forward-thinking green energy and
-          sustainability solutions company based in Ahmedabad, Gujarat, India. We
-          specialise in the development of Compressed Bio-Gas plants, carbon
-          credit projects and agroforestry programmes.
+          At Anantaa Green Energy, we believe sustainability is more than an
+          environmental responsibility — it&apos;s an opportunity to create
+          lasting value. We develop integrated solutions across Compressed
+          Bio-Gas (CBG) Plants, Agroforestry, and Carbon Credits, helping
+          transform natural resources into clean energy, environmental impact,
+          and sustainable growth.
         </p>
         <p>
-          <strong>
-            Our mission is to build scalable, environmentally responsible
-            infrastructure that can create long-term value for project partners,
-            investors and local communities.
-          </strong>
+          <strong>Every project begins with one principle: build what lasts.</strong>{" "}
+          From responsible feedstock planning and efficient project development
+          to measurable carbon reductions, we focus on solutions that are
+          practical, scalable, and designed for long-term success.
         </p>
         <p>
-          Those two halves of the sentence are not in tension, but they are not
-          automatically aligned either. Making them align is the actual work:
-          choosing sites where the feedstock is genuinely there, sizing plants to
-          what the catchment can sustain rather than to what a subsidy would
-          reward, and being willing to say no to projects that only look good on a
-          slide.
-        </p>
-        <p>
-          India is in the middle of a clean energy build-out that will run for
-          decades. We would rather be a small, credible part of it for all of that
-          time than a large one briefly.
+          As India accelerates its clean energy transition, we are committed to
+          delivering projects that support businesses, empower communities, and
+          contribute to a low-carbon future. By combining innovation, technical
+          expertise, and strategic partnerships, we aim to build infrastructure
+          that creates value for generations — not just for today.
         </p>
         <p>
           Anantaa is still early in its journey. We are focused on building the
@@ -140,10 +135,9 @@ export default function AboutPage() {
             >
               <p className="eyebrow text-flame-400">Vision</p>
               <p className="text-cream-50 mt-7 text-xl leading-relaxed lg:text-2xl">
-                Become a leading force in India&apos;s clean energy transition,
-                influencing global efforts towards a sustainable future while
-                ensuring environmental integrity and economic viability for all
-                stakeholders.
+                Sustainability that delivers more than environmental impact —
+                creating long-term value, energy security, and meaningful
+                progress for every stakeholder.
               </p>
             </div>
 
@@ -154,10 +148,9 @@ export default function AboutPage() {
             >
               <p className="eyebrow text-flame-400">Mission</p>
               <p className="text-cream-50 mt-7 text-xl leading-relaxed lg:text-2xl">
-                Develop scalable, sustainable green energy projects that are
-                commercially disciplined and contribute positively to the
-                environment and society through responsible practices and
-                technologies.
+                Transforming ideas into sustainable energy solutions through
+                innovation, responsible development, and long-term partnerships
+                that benefit businesses, communities, and the environment.
               </p>
             </div>
           </div>
@@ -257,14 +250,15 @@ export default function AboutPage() {
                 <Eyebrow>Connect With Us</Eyebrow>
               </div>
               <SectionHeading className="mt-6 text-4xl lg:text-5xl!" data-reveal>
-                Talk to the people
+                Let&apos;s build the
                 <br />
-                who decide.
+                future together.
               </SectionHeading>
               <p className="text-cream-50/65 mt-7 leading-relaxed" data-reveal>
-                We are a small team by design, which means the person you speak to
-                first is generally the person who will be on the project. Connect
-                with us to explore opportunities and to meet the leadership team.
+                Every successful project begins with a meaningful conversation.
+                Whether you&apos;re exploring CBG, Agroforestry, or Carbon Credit
+                opportunities, our team is here to understand your vision and
+                help turn it into reality.
               </p>
             </div>
 
@@ -316,8 +310,8 @@ export default function AboutPage() {
 
       <CtaBand
         eyebrow="Get in touch"
-        title={"Bring us a site,\na question, or a doubt."}
-        body="Early conversations cost nothing and save a great deal later. We are happy to give a view on a project we will not end up building."
+        title={"Every great project begins\nwith a simple conversation."}
+        body="Whether you have land, feedstock, a project idea, or simply questions, we're here to help you explore the possibilities with practical guidance and honest advice."
       />
     </>
   );

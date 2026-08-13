@@ -16,22 +16,26 @@ const revenueStreams = [
   {
     index: "01",
     title: "EPC Services",
-    body: "Engineering, procurement and construction delivered for third-party owners. Contracted margin, defined scope, and the mechanism through which we build project experience without holding every asset.",
+    tagline: "Build projects. Build capability.",
+    body: "We deliver engineering, procurement, construction, and commissioning for project owners — creating revenue while expanding our execution experience.",
   },
   {
     index: "02",
-    title: "Green Project Consulting",
-    body: "Feasibility studies, feedstock strategy, technology selection and technical due diligence. Low capital intensity, and it puts us in front of projects long before they are financed.",
+    title: "Project Development",
+    tagline: "Find the opportunity before the project begins.",
+    body: "We support feasibility, feedstock assessment, technology planning, project structuring, and development — helping move promising ideas toward execution.",
   },
   {
     index: "03",
-    title: "Carbon Credit Monetisation",
-    body: "Screening and development of eligible carbon projects, with verification support and eventual sale where the methodology and registry allow it.",
+    title: "Carbon Credits",
+    tagline: "Turn environmental impact into an additional value stream.",
+    body: "We develop eligible carbon opportunities and support the journey from project assessment to verification, issuance, trading, and monetisation.",
   },
   {
     index: "04",
-    title: "Direct Project Operations",
-    body: "A longer-term pathway to owning and operating selected plants. This is the most capital-intensive stream and will be developed carefully as opportunities mature.",
+    title: "Project Operations",
+    tagline: "Stay involved after the plant starts.",
+    body: "Over time, we aim to operate selected projects directly, creating opportunities for recurring operational revenue and deeper control over project performance.",
   },
 ];
 
@@ -59,23 +63,23 @@ const marketFacts = [
 const thesis = [
   {
     index: "01",
-    title: "Policy demand, not sentiment demand",
-    body: "The offtake case rests on a blending obligation and a national programme, not on voluntary corporate goodwill. Regulated demand is slower to arrive and far harder to withdraw.",
+    title: "Built around emerging demand",
+    body: "We operate in sectors supported by India's growing focus on renewable energy, cleaner fuels, sustainable agriculture, and emissions reduction.",
   },
   {
     index: "02",
-    title: "Three uncorrelated revenue lines per asset",
-    body: "Fuel, fertiliser and carbon respond to different markets. A single plant carries a diversification that most infrastructure of this size does not.",
+    title: "Multiple value opportunities",
+    body: "A well-designed project can create value across clean fuel, organic fertiliser, biomass, and carbon credits — creating more than one opportunity from the same ecosystem.",
   },
   {
     index: "03",
-    title: "Feedstock owned upstream",
-    body: "Agro forestry converts the largest input risk in bio-energy — biomass availability and price — from a market exposure into a contracted supply base.",
+    title: "Building the biomass ecosystem",
+    body: "Through agroforestry programmes and biomass sourcing partnerships, we aim to develop more reliable and sustainable feedstock networks for CBG projects over time.",
   },
   {
     index: "04",
-    title: "Repeatability over spectacle",
-    body: "Standardised plant configurations across a catchment beat one large bespoke facility on capital efficiency, delivery risk and time to revenue.",
+    title: "Built to scale",
+    body: "We focus on creating repeatable project models, strong partnerships, and disciplined execution so that every project builds capability for the next.",
   },
 ];
 
@@ -86,11 +90,13 @@ export default function InvestorsPage() {
         eyebrow="Business Model & Market"
         title={
           <>
-            Built for returns{" "}
-            <span className="flame-text">that outlast the subsidy.</span>
+            Building businesses that{" "}
+            <span className="flame-text">
+              compound beyond the first project.
+            </span>
           </>
         }
-        lede="Anantaa Green Energy is building a diversified business model around EPC services, green-project consulting, eligible carbon projects and, over time, direct project operations."
+        lede="Anantaa Green Energy is building an integrated platform across CBG, agroforestry, carbon credits, EPC, and project operations — creating multiple ways to participate in India's growing clean-energy economy."
       />
 
       {/* Revenue streams */}
@@ -109,9 +115,9 @@ export default function InvestorsPage() {
                 <Eyebrow>Business Model</Eyebrow>
               </div>
               <SectionHeading className="mt-6" data-reveal>
-                Four streams,
+                Four revenue streams.
                 <br />
-                one balance sheet.
+                One integrated business.
               </SectionHeading>
             </div>
             <div
@@ -120,9 +126,9 @@ export default function InvestorsPage() {
               style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
             >
               <p className="text-cream-50/65 leading-relaxed">
-                Each stream has a different capital profile and a different
-                horizon. Held together, they mean a slow year in one does not
-                stop the business in the others.
+                Anantaa is building a diversified model where each vertical
+                supports the next. Some generate near-term service revenue, while
+                others create longer-term opportunities and recurring value.
               </p>
             </div>
           </div>
@@ -141,9 +147,21 @@ export default function InvestorsPage() {
                 <h3 className="display text-cream-50 mt-5 text-2xl lg:text-3xl">
                   {s.title}
                 </h3>
-                <p className="text-cream-50/60 mt-4 leading-relaxed">{s.body}</p>
+                <p className="text-flame-400 mt-3 leading-relaxed">
+                  {s.tagline}
+                </p>
+                <p className="text-cream-50/60 mt-3 leading-relaxed">{s.body}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-14 text-center" data-reveal>
+            <p className="eyebrow text-cream-50/50">The bigger picture</p>
+            <p className="display text-cream-50 mt-5 text-2xl lg:text-3xl">
+              Develop <span className="text-flame-400">→</span> Build{" "}
+              <span className="text-flame-400">→</span> Operate{" "}
+              <span className="text-flame-400">→</span> Monetise
+            </p>
           </div>
         </div>
       </section>
@@ -267,39 +285,26 @@ export default function InvestorsPage() {
         aside={{
           label: "What we will share",
           items: [
-            "Feedstock catchment study and contracting status",
-            "Capex and opex build-up with named assumptions",
-            "Technology selection rationale and alternatives considered",
-            "Statutory approval status and critical path",
-            "Carbon revenue treated separately from the base case",
-            "The assumptions we are least confident about",
+            "Feedstock & Supply — availability, sourcing plan, catchment, and contracting status",
+            "Project Economics — detailed capex, opex, revenue assumptions, and project-level financials",
+            "Technology — why a particular technology is selected and what alternatives were considered",
+            "Approvals & Execution — current status, key requirements, timelines, and potential project risks",
+            "Carbon Upside — carbon revenue assessed separately rather than being used to make the base project look stronger",
+            "Key Risks & Sensitivities — the assumptions that matter most and the areas where uncertainty remains",
           ],
         }}
       >
         <p>
-          We would rather have a shorter conversation with a well-informed
-          investor than a long one with an enthusiastic one. Every project we
-          bring forward is presented with its sensitivities visible.
-        </p>
-        <p>
-          <strong>
-            Carbon revenue is always modelled as upside, never as the base case.
-          </strong>{" "}
-          Credit prices move, methodologies get revised and registries change
-          their rules. A project that only clears its hurdle rate with carbon
-          included is a project we will tell you not to fund.
-        </p>
-        <p>
-          If a site does not work, we would rather say so at the study stage than
-          discover it at commissioning. That position has cost us work before and
-          will again.
+          Every opportunity should give an investor enough clarity to ask the
+          right questions, challenge the assumptions, and make an informed
+          decision.
         </p>
       </CreamFeature>
 
       <CtaBand
         eyebrow="Investor enquiry"
-        title={"Request a\nproject briefing."}
-        body="For prospective partnerships, project opportunities and the assumptions behind them, get in touch. We will share what is currently available and where the business is still building its pipeline."
+        title={"Want to understand\nthe opportunity?"}
+        body="Whether you're exploring a project partnership, strategic opportunity, or investment, start with a conversation. We'll share our current projects, business model, available opportunities, and the assumptions behind them — including what we're still building and where the opportunity is developing."
       />
     </>
   );

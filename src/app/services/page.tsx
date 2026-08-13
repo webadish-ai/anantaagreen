@@ -15,41 +15,41 @@ export const metadata = pageMetadata({
 
 const detail: Record<string, string[]> = {
   "cbg-plant": [
-    "Feedstock survey and catchment modelling",
-    "Process design, engineering and equipment specification",
-    "EPC delivery, commissioning and performance testing",
-    "Operations, maintenance and operator training",
+    "Feedstock Assessment & Biomass Planning",
+    "Plant Design & Engineering",
+    "EPC Execution & Commissioning",
+    "Operations, Maintenance (O&M) & Technical Support",
   ],
   "carbon-credits": [
-    "Eligibility screening and baseline assessment",
-    "Methodology selection and documentation support",
-    "Monitoring, reporting and verification systems",
-    "Registry issuance and offtake strategy",
+    "Project Eligibility & Carbon Assessment",
+    "Methodology, Documentation & MRV Support",
+    "Carbon Credit Trading & Market Access",
+    "Offtake Strategy & Monetisation",
   ],
   "agro-forestry": [
-    "Land, soil and water assessment",
-    "Species selection and plantation design",
-    "Farmer aggregation and contract farming",
-    "Harvest cycles linked to plant demand",
+    "Land, Soil & Water Assessment",
+    "Species Selection & Plantation Design",
+    "Farmer Partnerships & Aggregation",
+    "Biomass Planning & Harvest Management",
   ],
 };
 
 const model = [
   {
     title: "EPC",
-    body: "Engineering, procurement and construction delivered as a single accountable package.",
+    body: "From design to commissioning. Engineering, procurement, construction, commissioning, and project delivery through one accountable partner.",
   },
   {
-    title: "Consulting",
-    body: "Feasibility, feedstock strategy and technical due diligence for green projects.",
+    title: "Project Development",
+    body: "Turning opportunities into viable projects. From feasibility and feedstock assessment to project structuring, planning, and development, we help build the foundation for successful projects.",
   },
   {
-    title: "Carbon",
-    body: "Project screening, documentation, verification support and monetisation of eligible carbon credits.",
+    title: "Carbon Credit",
+    body: "Turning impact into opportunity. Carbon project development, documentation, verification support, credit issuance, trading, and monetisation.",
   },
   {
     title: "Operations",
-    body: "Direct project operations — we run assets, not just hand over drawings.",
+    body: "We don't just hand over the keys. Long-term operations, maintenance, performance management, and technical support to keep projects delivering value.",
   },
 ];
 
@@ -60,8 +60,8 @@ export default function ServicesPage() {
         eyebrow="Core Services & Specialisations"
         title={
           <>
-            Three capabilities.{" "}
-            <span className="flame-text">One system.</span>
+            Three services.{" "}
+            <span className="flame-text">One sustainable vision.</span>
           </>
         }
         lede="We help develop the plant, design the evidence for eligible carbon projects, and strengthen the biomass supply chain. Each capability can stand alone — together they help close the loop."

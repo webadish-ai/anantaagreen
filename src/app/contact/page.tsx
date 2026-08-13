@@ -32,11 +32,11 @@ export default function ContactPage() {
         eyebrow="Connect With Us"
         title={
           <>
-            Tell us what you have.{" "}
-            <span className="flame-text">We will tell you what it needs.</span>
+            Your next green project{" "}
+            <span className="flame-text">could start here.</span>
           </>
         }
-        lede="Connect with us to explore opportunities and to learn about our leadership team. Feedstock, land, capital or a question — all of it starts the same way."
+        lede="Tell us what you have and where you want to go. We'll help you understand the possibilities, the next steps, and how Anantaa can help bring it together."
       />
 
       {/* Form + details */}
@@ -148,9 +148,9 @@ export default function ContactPage() {
                 <Eyebrow>Find us</Eyebrow>
               </div>
               <SectionHeading className="mt-6 text-4xl lg:text-5xl!" data-reveal>
-                Prahladnagar,
+                Our office.
                 <br />
-                Ahmedabad.
+                Your next conversation.
               </SectionHeading>
             </div>
             <div

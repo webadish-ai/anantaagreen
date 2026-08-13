@@ -39,7 +39,7 @@ export function ProcessSpine() {
               </p>
             </div>
             <div className="mt-8" data-reveal>
-              <ArrowLink href="/technology" tone="light">
+              <ArrowLink href="/services/cbg-plant/technology" tone="light">
                 Explore the technology
               </ArrowLink>
             </div>

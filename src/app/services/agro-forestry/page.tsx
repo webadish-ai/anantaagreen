@@ -43,36 +43,28 @@ const breadcrumbJsonLd = {
 const scope = [
   {
     title: "Land, Soil & Water Assessment",
-    body: "Understanding what a parcel can actually carry — soil profile, rainfall, irrigation access and degradation history — before any species is committed to.",
+    body: "We understand the land before planting — soil, water availability, climate, rainfall, and existing land conditions.",
   },
   {
-    title: "Species Selection",
-    body: "Matching fast-rotation biomass species to site conditions, farmer economics and the calorific and moisture profile the plant needs.",
+    title: "Right Species, Right Land",
+    body: "We select species based on the land's potential, the client's objectives, market opportunity, and the intended use of the biomass.",
   },
   {
-    title: "Plantation Design",
-    body: "Block, boundary or intercropped layouts that raise biomass yield without displacing the food crop the land already supports.",
+    title: "Plantation Planning",
+    body: "We create practical plantation layouts — dedicated blocks, boundary plantations, or mixed cultivation — designed to make the best use of available land.",
   },
   {
-    title: "Farmer Aggregation",
-    body: "Building the grower network — contract farming terms, buy-back assurance and extension support that make participation worth a farmer's risk.",
+    title: "Farmer Partnerships",
+    body: "Where farmer participation is part of the model, we help build grower networks with clear terms, support, and structured procurement arrangements.",
   },
   {
-    title: "Harvest Cycle Planning",
-    body: "Staggering rotations across the catchment so biomass arrives continuously rather than in a glut the plant cannot store.",
+    title: "Harvest & Supply Planning",
+    body: "Plantation and harvesting cycles are planned to create a steady and reliable supply instead of depending on one large seasonal harvest.",
   },
   {
-    title: "Feedstock Integration",
-    body: "Linking plantation output directly to digester demand, closing the loop between the land and the plant it supplies.",
+    title: "Biomass Integration",
+    body: "Where plantations are aligned with downstream applications, we ensure a direct and dependable flow of biomass from field to end use.",
   },
-];
-
-const species = [
-  "Bajra Napier hybrid — high-yield fodder and energy grass",
-  "Bamboo — fast rotation, strong root binding on marginal land",
-  "Subabul (Leucaena) — nitrogen fixing, coppices readily",
-  "Melia dubia — rapid growth, timber and biomass dual value",
-  "Casuarina — tolerant of poor and coastal soils",
 ];
 
 const plantationCategories = [
@@ -80,73 +72,68 @@ const plantationCategories = [
     title: "Commercial Fruits",
     species: [
       "Mango, Pomegranate",
-      "Guava, Citrus, Date",
+      "Guava, Citrus, Dates",
       "Custard Apple, Dragon Fruit",
       "Banana, Coconut",
-      "Apple Ber, Chiku",
+      "Apple Ber, Chikoo",
     ],
   },
   {
     title: "Long-Term Timber",
     species: [
-      "Teakwood (Sagwan)",
-      "Red & White Sandalwood",
-      "Shisham (Rosewood)",
-      "Nilgiri (Eucalyptus)",
+      "Teak",
+      "Sandalwood",
+      "Shisham",
+      "Eucalyptus",
       "Desi Babool, Mahuda",
     ],
   },
   {
-    title: "Medicinal Plants",
+    title: "Medicinal & Herbal Plants",
     species: [
       "Ashwagandha, Aloe Vera",
-      "Shatavari, Saragvo",
-      "Amla, Ardusa, Khadir",
-      "Arjuna, Bael, Kanchnar",
+      "Shatavari",
+      "Drumstick (Saragvo), Amla",
+      "Ardusa, Khair",
+      "Arjun, Bael, Kanchan",
     ],
   },
   {
-    title: "Greenhouse Crops",
+    title: "Protected & Greenhouse Crops",
     species: [
-      "Exotic vegetables",
-      "Specialty flowers",
-      "Premium fruits",
-      "Medicinal herbs",
-      "Exotic mushrooms",
+      "Exotic Vegetables",
+      "Specialty Flowers",
+      "Premium Fruits",
+      "Medicinal Herbs",
+      "Exotic Mushrooms",
     ],
   },
   {
-    title: "Oxygen Producers",
-    species: [
-      "Neem (Azadirachta)",
-      "Peepal (sacred fig)",
-      "Banyan",
-      "Bamboo varieties",
-      "Ashoka tree",
-    ],
+    title: "Biodiversity & Green Cover",
+    species: ["Neem", "Peepal", "Banyan", "Bamboo", "Ashoka"],
   },
 ];
 
 const benefits = [
   {
     index: "01",
-    title: "Feedstock security",
-    body: "A plant dependent on spot-market residue is a plant exposed to every price spike and bad season. Dedicated plantation acreage converts that exposure into a contracted supply base.",
+    title: "Reliable feedstock",
+    body: "Purpose-grown biomass creates a more dependable supply for CBG projects, reducing reliance on unpredictable seasonal residue markets.",
   },
   {
     index: "02",
-    title: "Land brought back",
-    body: "Degraded and marginal land that will not carry a reliable food crop can carry biomass — putting idle acreage into productive use without competing for prime farmland.",
+    title: "Productive land",
+    body: "Suitable marginal or underutilised land can be brought into productive use through carefully selected plantation programmes.",
   },
   {
     index: "03",
-    title: "Income the farmer keeps",
-    body: "Trees and energy grasses provide a second income stream on the same holding, on a different calendar to the main crop, with assured offtake behind it.",
+    title: "Additional farmer income",
+    body: "Farmers can create an additional income stream through biomass, fruit, timber, or other plantation outputs — depending on the model.",
   },
   {
     index: "04",
-    title: "Biodiversity and carbon",
-    body: "Mixed plantation improves soil structure, water retention and habitat, while standing biomass and soil carbon build a sequestration case that supports the carbon programme.",
+    title: "Environmental value",
+    body: "Well-planned plantations can support soil health, biodiversity, water retention, and carbon sequestration, creating environmental value alongside economic returns.",
   },
 ];
 
@@ -159,13 +146,11 @@ export default function AgroForestryPage() {
         eyebrow="Service 03 — Land & Biomass"
         title={
           <>
-            Agroforestry,{" "}
-            <span className="flame-text">
-              where the supply chain starts.
-            </span>
+            Agroforestry that{" "}
+            <span className="flame-text">grows more than trees.</span>
           </>
         }
-        lede="Developing agroforestry programmes that support biodiversity, farmer livelihoods and more resilient biomass supply for CBG projects."
+        lede="We develop integrated agroforestry programmes that bring together productive land, stronger ecosystems, farmer opportunities, and reliable biomass supply — creating value today while building a sustainable resource for tomorrow."
       >
         <ButtonLink href="/contact">Discuss a Plantation Programme</ButtonLink>
       </PageHero>
@@ -174,33 +159,25 @@ export default function AgroForestryPage() {
         eyebrow="What it is"
         heading={
           <>
-            Trees and crops on
+            More than a plantation.
             <br />
-            the same hectare.
+            A sustainable resource system.
           </>
         }
-        aside={{ label: "Fast-rotation feedstock species", items: species }}
       >
         <p>
-          Agro forestry means deliberately growing woody perennials alongside
-          agriculture — as boundary rows, intercropped blocks or dedicated stands
-          on land that food crops cannot use reliably.
+          Agroforestry brings trees, crops, and productive plants together in a
+          way that makes land work harder — while improving the health of the
+          land around it.
         </p>
         <p>
           <strong>
-            For a bio-energy company it is not a side programme, it is upstream
-            infrastructure.
+            For us, agroforestry is also the starting point of a stronger biomass
+            supply chain.
           </strong>{" "}
-          A digester needs a predictable tonnage arriving every week at a
-          predictable moisture content. Agricultural residue alone is seasonal and
-          contested. Planted biomass is the part of the supply curve you can
-          actually control.
-        </p>
-        <p>
-          The environmental case and the commercial case point the same
-          direction here, which is rare enough to be worth building a business
-          around: more standing biomass, more soil carbon, better water
-          retention, more resilient farmer income — and a plant that runs.
+          By developing planned plantations, we can create a more reliable source
+          of biomass for CBG projects while giving farmers an additional
+          opportunity to generate long-term income.
         </p>
         <p>
           Where the land and the client&apos;s goals call for it, the same
@@ -219,9 +196,9 @@ export default function AgroForestryPage() {
                 <Eyebrow>Sustainable Growth Model</Eyebrow>
               </div>
               <SectionHeading className="mt-6" data-reveal>
-                Plantation
+                One land.
                 <br />
-                diversity.
+                Multiple possibilities.
               </SectionHeading>
             </div>
             <div
@@ -230,9 +207,10 @@ export default function AgroForestryPage() {
               style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
             >
               <p className="text-cream-50/65 leading-relaxed">
-                A plantation programme designed around a single species is a
-                monoculture with a different name. We mix categories against
-                what the site and the client&apos;s goals actually call for.
+                Every piece of land is different. Instead of following a
+                one-size-fits-all plantation model, we design the mix around
+                soil, climate, water availability, land use, market demand, and
+                the owner&apos;s goals.
               </p>
             </div>
           </div>
@@ -263,6 +241,21 @@ export default function AgroForestryPage() {
               </div>
             ))}
           </div>
+
+          <div
+            className="border-cream-50/12 mt-16 border-t pt-10"
+            data-reveal
+          >
+            <h3 className="display text-cream-50 max-w-2xl text-2xl lg:text-3xl">
+              Designed around your land. Built around your goals.
+            </h3>
+            <p className="text-cream-50/65 mt-5 max-w-3xl leading-relaxed">
+              Whether the objective is biomass, farm income, timber, fruit
+              production, carbon sequestration, biodiversity, or a combination of
+              these, we help create a plantation strategy that makes the most of
+              every acre.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -270,12 +263,12 @@ export default function AgroForestryPage() {
         eyebrow="Scope of Work"
         heading={
           <>
-            From soil survey
+            From land assessment to
             <br />
-            to standing crop.
+            reliable biomass supply.
           </>
         }
-        intro="Plantation programmes fail on agronomy and on trust. We work on both — the right species for the site, and terms a farmer can afford to believe in."
+        intro="We don't simply plant trees. We design complete plantation programmes around the land, the people who cultivate it, and the long-term purpose of the plantation."
         items={scope}
       />
 
@@ -301,9 +294,9 @@ export default function AgroForestryPage() {
               className="display text-ink-900 mt-6 text-4xl sm:text-5xl lg:text-[3.6rem]"
               data-reveal
             >
-              One programme,
+              One programme.
               <br />
-              four returns.
+              Multiple returns.
             </h2>
           </div>
 
@@ -330,9 +323,9 @@ export default function AgroForestryPage() {
 
       <OtherServices current="agro-forestry" />
       <CtaBand
-        eyebrow="Agro forestry enquiry"
-        title={"Have land, or\nhave farmers?"}
-        body="Whether you hold acreage looking for a use or a grower network looking for assured offtake, the conversation starts the same way — what will grow there, and who buys it."
+        eyebrow="Agroforestry enquiry"
+        title={"Have land? Have farmers?\nLet's grow something valuable."}
+        body="Whether you have land to develop, farmers looking for a reliable market, or simply an idea for a plantation programme, let's explore what the opportunity could look like. We'll help you identify what can grow, how it can be developed, and where the output can create value."
       />
     </>
   );

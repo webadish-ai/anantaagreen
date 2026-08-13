@@ -80,7 +80,7 @@ export const faq: FaqEntry[] = [
     ],
     answer:
       "Compressed Bio-Gas (CBG) is biogas — produced when organic matter breaks down without oxygen — that has been cleaned and upgraded to above 90% methane, then compressed to around 250 bar. At that point it's functionally interchangeable with CNG. We handle the whole journey: feedstock survey, process design, EPC delivery, commissioning and long-run operations.",
-    links: [{ label: "CBG Plant service", href: "/services/cbg-plant" }, { label: "How the process works", href: "/technology" }],
+    links: [{ label: "CBG Plant service", href: "/services/cbg-plant" }, { label: "How the process works", href: "/services/cbg-plant/technology" }],
   },
   {
     id: "cbg-feedstock",
@@ -147,7 +147,7 @@ export const faq: FaqEntry[] = [
     ],
     answer:
       "Our plants use CSTR (continuously stirred tank) or plug flow digesters depending on the feedstock, followed by H₂S removal, drying, CO₂ upgrading (water scrubbing, pressure swing adsorption, or membrane separation) and compression to around 250 bar. The right combination depends on scale, feedstock and utilities.",
-    links: [{ label: "Full process explained", href: "/technology" }],
+    links: [{ label: "Full process explained", href: "/services/cbg-plant/technology" }],
   },
   {
     id: "location",
