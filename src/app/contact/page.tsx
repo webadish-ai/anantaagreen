@@ -1,7 +1,7 @@
 import { PageHero } from "@/components/page-hero";
 import { EnquiryForm } from "@/components/enquiry-form";
-import { Eyebrow, Grain, SectionHeading } from "@/components/ui";
-import { contact, site, telHref, waHref } from "@/lib/site";
+import { Eyebrow, Grain, SectionHeading, SocialIconLink } from "@/components/ui";
+import { contact, site, socials, telHref, waHref } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import { jsonLdScriptProps } from "@/lib/json-ld";
 
@@ -125,6 +125,15 @@ export default function ContactPage() {
                   >
                     www.anantaagreenenergy.com
                   </a>
+                </div>
+
+                <div className="border-cream-50/10 mt-6 border-t pt-6">
+                  <p className="eyebrow text-flame-400">Follow us</p>
+                  <div className="mt-4 flex items-center gap-3">
+                    {socials.map((s) => (
+                      <SocialIconLink key={s.label} social={s} />
+                    ))}
+                  </div>
                 </div>
               </div>
 

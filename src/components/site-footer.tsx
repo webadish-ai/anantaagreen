@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { contact, nav, services, site, telHref } from "@/lib/site";
-import { AnantaaMark, Grain } from "@/components/ui";
+import { contact, nav, services, site, socials, telHref } from "@/lib/site";
+import { AnantaaMark, Grain, SocialIconLink } from "@/components/ui";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -118,10 +118,15 @@ export function SiteFooter() {
 
       {/* Bottom bar */}
       <div className="border-cream-50/8 relative border-t">
-        <div className="shell flex flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="shell flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="eyebrow text-cream-50/35">
             © {year} {site.name}
           </p>
+          <div className="flex items-center gap-5">
+            {socials.map((s) => (
+              <SocialIconLink key={s.label} social={s} className="h-9 w-9" />
+            ))}
+          </div>
           <p className="eyebrow text-cream-50/35">
             Ahmedabad · Gujarat · India
           </p>

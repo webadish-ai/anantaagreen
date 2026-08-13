@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { Chatbot } from "@/components/chatbot";
-import { site, contact } from "@/lib/site";
+import { site, contact, socials } from "@/lib/site";
 import { jsonLdScriptProps } from "@/lib/json-ld";
 
 const familjen = Familjen_Grotesk({
@@ -102,6 +102,7 @@ const organizationJsonLd = {
     longitude: contact.mapCoords.lng,
   },
   hasMap: contact.mapShareUrl,
+  sameAs: socials.map((s) => s.href),
   areaServed: "IN",
   knowsAbout: [
     "Compressed Bio-Gas",

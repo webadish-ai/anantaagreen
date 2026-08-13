@@ -26,6 +26,25 @@ export const contact = {
   mapShareUrl: "https://maps.app.goo.gl/mT2uy7DijfKb9WdKA",
 } as const;
 
+export type SocialLink = {
+  label: string;
+  href: string;
+  icon: "linkedin" | "instagram";
+};
+
+export const socials: SocialLink[] = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/anantaa-green-energy/",
+    icon: "linkedin",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/anantaagreenenergy/",
+    icon: "instagram",
+  },
+];
+
 /** Strips spaces so a phone string can be used in a tel: href. */
 export const telHref = (phone: string) => `tel:${phone.replace(/\s+/g, "")}`;
 
