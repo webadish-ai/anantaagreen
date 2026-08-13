@@ -43,36 +43,42 @@ export type LeadershipMember = {
   bio: string;
 };
 
+/**
+ * Titles are written out in full — the card prints the title directly above
+ * the bio, so an appended abbreviation repeats what the reader just read.
+ * Each bio states what the person is accountable for without restating the
+ * title, and opens on a distinct verb so the grid does not read repetitively.
+ */
 export const leadership: LeadershipMember[] = [
   {
     name: "Vaishali Shah",
     title: "Director",
-    bio: "Strategic leadership and sustainability initiatives, steering partnerships for green impact.",
+    bio: "Sets the sustainability agenda and builds the long-term partnerships that carry projects from intent to delivery.",
   },
   {
     name: "Apeksha Bhagwagar",
     title: "Director",
-    bio: "Driving business development and operational excellence across renewable verticals.",
+    bio: "Oversees business development and operational delivery across the CBG, carbon credit and agroforestry verticals.",
   },
   {
     name: "Neel Patel",
     title: "Director",
-    bio: "Corporate strategy, market expansion and long-term vision for clean energy growth.",
+    bio: "Guides corporate strategy and market expansion, and the long-term view of where the business invests next.",
   },
   {
     name: "Brijesh Bhagwagar",
-    title: "Business Development Executive (BDE)",
-    bio: "Driving strategic business growth by identifying opportunities, building strong client relationships, and delivering sustainable revenue expansion.",
+    title: "Business Development Executive",
+    bio: "Identifies new project opportunities and builds the client relationships behind a growing pipeline.",
   },
   {
     name: "Preet Patel",
-    title: "Chief Marketing Officer (CMO)",
-    bio: "Visionary Chief Marketing Officer driving brand transformation, strategic partnerships, market expansion, and sustainable business growth.",
+    title: "Chief Marketing Officer",
+    bio: "Leads brand, positioning and market outreach, and the partnerships that open new territory for the business.",
   },
   {
     name: "Himanshu Shah",
-    title: "Chief Operating Officer (COO)",
-    bio: "Visionary Chief Operating Officer driving operational excellence, strategic execution, organisational transformation, and sustainable business growth.",
+    title: "Chief Operating Officer",
+    bio: "Turns strategy into operating discipline, holding execution standards across the project portfolio.",
   },
 ];
 
