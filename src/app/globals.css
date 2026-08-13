@@ -8,13 +8,20 @@
    ========================================================================== */
 
 @theme {
-  /* forest — the dark canvas */
-  --color-forest-950: #061309;
-  --color-forest-900: #0b2213;
-  --color-forest-850: #0f2c19;
-  --color-forest-800: #133820;
-  --color-forest-700: #1a4b2a;
-  --color-forest-600: #1d6636;
+  /* forest — the dark canvas.
+     Shifted up one step from the original scale (each value below was
+     previously the next tier up, e.g. 950 used to be 900) — #061309's
+     relative luminance was ~0.005, near-indistinguishable from black on
+     lower-contrast/dimmer laptop panels. Below roughly that luminance,
+     human color vision loses hue discrimination regardless of how
+     saturated the underlying color is, so the fix is more luminance,
+     not more green. Relationships between tiers are unchanged. */
+  --color-forest-950: #0b2213;
+  --color-forest-900: #0f2c19;
+  --color-forest-850: #133820;
+  --color-forest-800: #1a4b2a;
+  --color-forest-700: #1d6636;
+  --color-forest-600: #24884a;
 
   /* brand green */
   --color-green-500: #248e44;
