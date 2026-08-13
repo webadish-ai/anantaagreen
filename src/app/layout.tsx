@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Familjen_Grotesk, Newsreader, JetBrains_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -7,6 +9,15 @@ import { Reveal } from "@/components/reveal";
 import { Chatbot } from "@/components/chatbot";
 import { site, contact, socials } from "@/lib/site";
 import { jsonLdScriptProps } from "@/lib/json-ld";
+
+/**
+ * Both empty until set in the Vercel project's environment variables — see
+ * .env.example. Left unset, GSC verification is simply omitted from <head>
+ * and the GA4 tag never loads; Vercel Web Analytics (below) doesn't need a
+ * variable, only the dashboard toggle on the project.
+ */
+const gaMeasurementId = process.env.GA_MEASUREMENT_ID;
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
 const familjen = Familjen_Grotesk({
   variable: "--font-familjen",
@@ -66,6 +77,9 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  ...(googleSiteVerification && {
+    verification: { google: googleSiteVerification },
+  }),
 };
 
 export const viewport: Viewport = {
@@ -137,6 +151,8 @@ export default function RootLayout({
         </main>
         <SiteFooter />
         <Chatbot />
+        <Analytics />
+        {gaMeasurementId && <GoogleAnalytics gaId={gaMeasurementId} />}
       </body>
     </html>
   );
