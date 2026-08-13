@@ -12,6 +12,16 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
 
+  // Desktop dropdowns are click-to-close, not just hover-to-open — CSS
+  // :hover alone can't do this, since a click doesn't clear it, so the
+  // panel would sit open until the pointer physically moves away.
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const closeDesktopMenus = () => {
+    setOpenMenu(null);
+    setOpenSubmenu(null);
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
@@ -28,7 +38,11 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setMenuOpen(false);
+      closeDesktopMenus();
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
@@ -95,9 +109,21 @@ export function SiteHeader() {
             className="hidden items-center gap-1 lg:flex"
           >
             {nav.map((item) => (
-              <div key={item.href} className="group relative">
+              <div
+                key={item.href}
+                className="relative"
+                onMouseEnter={() => setOpenMenu(item.href)}
+                onMouseLeave={closeDesktopMenus}
+                onFocus={() => setOpenMenu(item.href)}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                    closeDesktopMenus();
+                  }
+                }}
+              >
                 <Link
                   href={item.href}
+                  onClick={closeDesktopMenus}
                   className={`eyebrow relative block px-4 py-2 transition-colors duration-300 ${
                     isActive(item.href)
                       ? "text-flame-400"
@@ -114,7 +140,13 @@ export function SiteHeader() {
                 </Link>
 
                 {item.children && (
-                  <div className="pointer-events-none absolute top-full left-1/2 w-80 -translate-x-1/2 pt-3 opacity-0 transition-all duration-300 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+                  <div
+                    className={`absolute top-full left-1/2 w-80 -translate-x-1/2 pt-3 transition-all duration-300 ${
+                      openMenu === item.href
+                        ? "pointer-events-auto translate-y-0 opacity-100"
+                        : "pointer-events-none opacity-0"
+                    }`}
+                  >
                     {/* No overflow-hidden here — a nested flyout (e.g. CBG
                         Plant -> CBG Technology) must be able to escape this
                         box. Corner-rounding is applied per row below instead. */}
@@ -122,12 +154,17 @@ export function SiteHeader() {
                       {item.children.map((child, i, siblings) => (
                         <div
                           key={child.href}
-                          className={`group/sub relative ${
+                          className={`relative ${
                             i > 0 ? "border-cream-50/8 border-t" : ""
                           }`}
+                          {...(child.children && {
+                            onMouseEnter: () => setOpenSubmenu(child.href),
+                            onMouseLeave: () => setOpenSubmenu(null),
+                          })}
                         >
                           <Link
                             href={child.href}
+                            onClick={closeDesktopMenus}
                             className={`hover:bg-forest-800 group/item flex items-center justify-between gap-3 overflow-hidden px-5 py-4 transition-colors ${
                               i === 0 ? "rounded-t-xl" : ""
                             } ${i === siblings.length - 1 ? "rounded-b-xl" : ""}`}
@@ -151,12 +188,19 @@ export function SiteHeader() {
                           </Link>
 
                           {child.children && (
-                            <div className="pointer-events-none absolute top-0 left-full w-72 pl-2 opacity-0 transition-all duration-300 group-focus-within/sub:pointer-events-auto group-focus-within/sub:opacity-100 group-hover/sub:pointer-events-auto group-hover/sub:opacity-100">
+                            <div
+                              className={`absolute top-0 left-full w-72 pl-2 transition-all duration-300 ${
+                                openSubmenu === child.href
+                                  ? "pointer-events-auto opacity-100"
+                                  : "pointer-events-none opacity-0"
+                              }`}
+                            >
                               <div className="border-cream-50/10 bg-forest-900/95 overflow-hidden rounded-xl border shadow-2xl backdrop-blur-xl">
                                 {child.children.map((grandchild, j) => (
                                   <Link
                                     key={grandchild.href}
                                     href={grandchild.href}
+                                    onClick={closeDesktopMenus}
                                     className={`hover:bg-forest-800 group/item block px-5 py-4 transition-colors ${
                                       j > 0 ? "border-cream-50/8 border-t" : ""
                                     }`}
