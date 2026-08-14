@@ -76,7 +76,7 @@ export default function HomePage() {
   return (
     <>
       {/* ================================================== HERO */}
-      <section className="bg-forest-950 grain relative flex min-h-[92svh] items-end overflow-hidden">
+      <section className="bg-forest-950 grain relative flex min-h-[72svh] items-end overflow-hidden">
         <Grain />
         <div className="blueprint absolute inset-0 opacity-70" aria-hidden />
 
