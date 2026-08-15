@@ -29,11 +29,26 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll while the drawer is open.
+  // Lock body scroll while the drawer is open. Plain overflow:hidden isn't
+  // enough on iOS Safari — if the page was scrolled when the drawer opens,
+  // WebKit renders position:fixed children offset by the scroll amount, so
+  // the drawer appears cut off instead of filling the viewport. Pinning the
+  // body itself with a negative top offset (the standard scroll-lock trick)
+  // avoids that, and we restore the scroll position on close.
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (!menuOpen) return;
+    const scrollY = window.scrollY;
+    const { body } = document;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
     return () => {
-      document.body.style.overflow = "";
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      window.scrollTo(0, scrollY);
     };
   }, [menuOpen]);
 
@@ -51,13 +66,21 @@ export function SiteHeader() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled
-          ? "bg-forest-950/88 border-cream-50/8 border-b backdrop-blur-xl"
-          : "border-b border-transparent"
-      } ${menuOpen ? "bg-forest-950" : ""}`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* backdrop-blur (and any other filter) establishes a new containing
+          block for position:fixed descendants — if that were on <header>
+          itself, the mobile drawer's `fixed inset-0` would resolve against
+          this bar's own height instead of the viewport once scrolled,
+          collapsing the drawer instead of opening it fully. Keeping the
+          blur on this inner wrapper (which doesn't contain the drawer)
+          avoids that while keeping the identical visual result. */}
+      <div
+        className={`transition-colors duration-500 ${
+          scrolled
+            ? "bg-forest-950/88 border-cream-50/8 border-b backdrop-blur-xl"
+            : "border-b border-transparent"
+        } ${menuOpen ? "bg-forest-950" : ""}`}
+      >
       {/* Contact micro-bar — stays pinned above the nav at every scroll position.
           Phone and email both stay visible on mobile, at a tighter size so the
           pair fits a 360px screen without truncating. */}
@@ -255,6 +278,7 @@ export function SiteHeader() {
             </span>
           </button>
         </div>
+      </div>
       </div>
 
       {/* Mobile drawer */}
