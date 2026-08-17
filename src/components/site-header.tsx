@@ -77,7 +77,7 @@ export function SiteHeader() {
       <div
         className={`transition-colors duration-500 ${
           scrolled
-            ? "bg-forest-950/88 border-cream-50/8 border-b backdrop-blur-xl"
+            ? "bg-forest-950 border-cream-50/8 border-b backdrop-blur-xl"
             : "border-b border-transparent"
         } ${menuOpen ? "bg-forest-950" : ""}`}
       >
