@@ -73,9 +73,18 @@ export function SiteHeader() {
           this bar's own height instead of the viewport once scrolled,
           collapsing the drawer instead of opening it fully. Keeping the
           blur on this inner wrapper (which doesn't contain the drawer)
-          avoids that while keeping the identical visual result. */}
+          avoids that while keeping the identical visual result.
+
+          `relative z-50` here matters too: without an explicit position,
+          this div's own background paints in the static/non-positioned
+          layer, which is always *below* positioned descendants of
+          <header> — including the drawer's `fixed z-40`. So the drawer's
+          content (scrolled internally) would show through this bar's
+          background everywhere except the bits of text/logo that
+          themselves carry z-50. Making the wrapper itself a positioned
+          z-50 box puts its whole background above the drawer, as intended. */}
       <div
-        className={`transition-colors duration-500 ${
+        className={`relative z-50 transition-colors duration-500 ${
           scrolled
             ? "bg-forest-950 border-cream-50/8 border-b backdrop-blur-xl"
             : "border-b border-transparent"
